@@ -1,23 +1,22 @@
 library(shiny)
 library(ggvis)
 
-
-vote <- read.csv("data/camara.csv", dec = ",")
+vote <- read.csv("data/camara.csv")[-1:-2]
 vote$urlFoto <- as.character(vote$urlFoto)
 vote$email <- as.character(vote$email)
-orient <- read.csv("data/partidos.csv", dec = ",")
-
+vote$nome <- as.character(vote$nome)
+orient <- read.csv("data/partidos.csv")
+names(orient)[1] <- "partido"
 
 nameparty <- function(x) {
   if(is.null(x)) return(NULL)
-  row <- vote[vote$id == x$id, c('name', 'partido', 'uf')]
+  row <- vote[vote$id == x$id, c('nome', 'partido', 'uf')]
   paste0(format(row), collapse = " - ")
 }
 
 party <- function(x) {
   if(is.null(x)) return(NULL)
-  row <- orient[orient$partido == x$partido, c('partido')]
-  paste0(format(row))
+  paste0(names(x), ": ", format(x), collapse = "<br />")
 }
 
 shinyServer(function(input, output) {
@@ -26,13 +25,23 @@ shinyServer(function(input, output) {
     ggvis(~xD1, ~xD2, key := ~id) %>%  
     layer_points(fill = ~partido, size.hover := 300) %>%
     add_tooltip(nameparty, "hover") %>%
+ 	add_axis("x", title = "", subdivide = 9, values = -2.5:2.3, tick_size_major = 10,
+ 		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20 ) %>% 
+ 	add_axis("y", title = "", subdivide = 9, values = -2.5:2, tick_size_major = 10,
+ 		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20) %>%
+ 	scale_nominal("fill", range = c("category20")) %>%
     bind_shiny("ideal", "ideal_ui")
 
+ 
  orient %>% 
     ggvis(~xD1, ~xD2, stroke := ~partido) %>%  
-    layer_points(fill = ~partido, size.hover := 300) %>%
+    layer_text(text := ~partido, fill = ~partido, fontSize := 20, fontWeight = "bold", fontStyle = "italic") %>%
     add_tooltip(party, "hover") %>%
-    bind_shiny("oideal", "oideal_ui")
-  
-      
+ 	add_axis("x", title = "", subdivide = 9, values = -1.5:2, tick_size_major = 10,
+ 		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20 ) %>% 
+ 	add_axis("y", title = "", subdivide = 9, values = -1.5:2, tick_size_major = 10,
+ 		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20) %>%
+ 	bind_shiny("oideal", "oideal_ui")
+
+     
 })
