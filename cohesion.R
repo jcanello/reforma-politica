@@ -15,6 +15,7 @@ coesao <- votes %>%
 	group_by(party) %>%
 	summarise_each(funs(rice.rel), contains("vote"))
 
+
 # organize gov orientaton
 gov.orient[gov.orient==8] <- NA
 gov.orient <- gov.orient[1,-1]

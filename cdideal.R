@@ -9,9 +9,9 @@ library(wnominate)
 #read data for roll call object
 
 # reforma política
-info<-read.csv("data.voteDescription2015.csv")
-votes<-read.csv("brvotes2015.csv")
-orient<-read.csv("brleaders2015.csv")
+info<-read.csv("data/data.voteDescription2015.csv")
+votes<-read.csv("data/brvotes2015.csv")
+orient<-read.csv("data/brleaders2015.csv")
 
 #cleaning votes for rc object
 legis<-votes[,1:4]
@@ -38,13 +38,6 @@ resumo.rc$lopSided
 # Legis Tab
 resumo.rc$legisTab
 
-# Absenteism plot
-abs <- sort(resumo.rc$legisTab[,"missing%"],decreasing=TRUE)
-dotplot(abs[33:1],
-	cex=2,
-	scales=list(alternating=3),
-	xlab="Falta/Abstenção/Obstrução (%)")
-
 # Party Loyalty
 resumo.rc$partyLoyalty
 
@@ -53,7 +46,7 @@ write.csv(resumo.rc$voteTab, "resumo.csv")
 
 #Run Ideal
 ideal2<-ideal(rc,d=2,verbose=TRUE,normalize=TRUE, maxiter=200000,
-	      thin = 200, burnin = 6000, store.item = TRUE)
+	      thin = 200, store.item = TRUE)
 
 resumo.id2<-summary(ideal2, verbose=T, include.beta = TRUE)
 
@@ -61,10 +54,10 @@ resumo.id2<-summary(ideal2, verbose=T, include.beta = TRUE)
 plot(ideal2, overlayCuttingPlanes = TRUE)
 
 # Plot with base
-plot(resumo$xm, pch = 19)
-for(i in 1:nrow(resumo$bm)){
-	abline(a=-resumo$bm[i,3]/resumo$bm[i,2],
-               b=-resumo$bm[i,1]/resumo$bm[i,2],
+plot(resumo.id2$xm, pch = 19)
+for(i in 1:nrow(resumo.id2$bm)){
+	abline(a=-resumo.id2$bm[i,3]/resumo.id2$bm[i,2],
+               b=-resumo.id2$bm[i,1]/resumo.id2$bm[i,2],
                col="blue",lwd=.5)
 }
 
@@ -92,8 +85,7 @@ resumo.rco <- summary(rc.o, verbose = T)
 
 # Run ideal
 idealc2<-ideal(rc.o,d=2,verbose=TRUE,normalize=TRUE, maxiter=200000,
-	       thin = 200, burnin = 6000, store.item = TRUE)
-
+	       thin = 200, store.item = TRUE)
 
 res<-summary(idealc2, verbose=T, include.beta = TRUE)
 
@@ -111,8 +103,8 @@ for(i in 1:nrow(res$bm)){
 
 ########## Legislators data
 
-deps <- read.csv("data/camara.csv")[,1:9]
-deps$fullID <- paste(deps$name,deps$partido,sep="/")
+deps <- read.csv("data/camara.csv")[,3:11]
+deps$fullID <- paste(deps$nome,deps$partido,sep="/")
 
 x.m <- as.data.frame(resumo.id2$xm)
 x.sd <- as.data.frame(resumo.id2$xsd)
@@ -152,7 +144,7 @@ p.hdr <- as.data.frame(res$xHDR)
 
 p.estimates <- cbind(p.m, p.sd, p.hdr)
 names(p.estimates) <- c("xD1", "xD2", "sdD1", "sdD2", "lowerD1", 
-		   "upperD1", "lowerD2", "lowerD2")
+		   "upperD1", "lowerD2", "upperD2")
 
 write.csv(p.estimates, "data/partidos.csv")
 

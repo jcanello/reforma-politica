@@ -1,0 +1,26 @@
+---
+title: "Sobre a metodologia"
+output: html_document
+---
+
+## Pontos ideais
+
+A análise espacial de votações nominais constitui um conjunto de métodos da Ciência Política com importantes aplicações nos estudos legislativos. De uma maneira geral, os modelos espaciais de decisão representam uma espécie de aplicação de elementos da escolha racional ao contexto da votação, combinando pressupostos da teoria espacial do voto com diferentes técnicas de estimação.
+
+Da teoria espacial do voto, adota-se a noção de que os atores possuem preferências que podem ser descritas em espaços (uni ou multi-dimensionais), de modo que aquela posição mais preferida representa o seu ponto ideal. No escalonamento mutidimensional e outras técnicas derivadas ou semelhantes, encontram-se as ferramentas matemáticas, computacionais e estatísticas que permitem extrair dimensões e posições a partir das decisões concretas.
+
+Em termos gerais, tais técnicas têm como ponto de partida uma matriz de votações, na qual estão registradas as decisões tomadas pelos atores políticos, tal como votar sim ou não em relação a um projeto. Com base nessa informação, é produzida uma matriz de semelhança entre o padrão de votação de cada legislador. Tais semelhanças são transformadas em distâncias, alimentando os diferentes algoritmos existentes para estimar pontos ideais.
+
+O objetivo de tais algoritmos é mapear a posição dos atores políticos e dos temas decididos em um espaço (uni ou multidimensional). Visualmente, a ideia é que a posição ideal de cada legislador - sua preferência máxima - possa ser estimada como um ponto no gráfico e que cada decisão também possa ser localizada como uma reta(ou plano) nesse mesmo gráfico, dividindo aqueles que votam sim daqueles que votam não.
+
+Existem diversas técnicas para análise espacial de votações, desde escalonamento mutidimensional e análise de componentes principais, passando por métodos paramétricos ou não paramétricos, como WNominate, DNominate e Optimal Classification, e até mesmo métodos que utilizam inferência bayesiana, como Ideal. É possível, ainda, adotar modelos dinâmicos - que permitem estimar a mudança dos pontos ideais ao longo do tempo -  e modelos hierárquicos, impondo restrições na estimativa dos parâmetros com base em variáveis externas, de modo a corrigir os valores utilizando informações adicionais.
+
+As estimativas produzidas pelo NECON adotam o algoritmo IDEAL, implementado na linguagem R por Simon Jackman através do pacote pscl. Trata-se de um método de inferência bayesiana para estimação de pontos ideais e análise de votações nominais. Uma das vantagens dessa abordagem é a possibilidade de estimar a incerteza em torno das posições, construindo intervalos de confiança através de simulações de Monte Carlo. Outra característica relevante - que o distingue dos algoritmos desenvolvidos por Poole e Rosenthal, como Wnominate e Optimal Classification - é que os pontos ideais máximo e mínimo em cada dimensão não precisam ser restringidos, o que enfatiza a identificação de legisladores mais extremistas e amplifica o espalhamento dos pontos no gráfico, ou seja, confere maior importância às diferenças entre os atores.
+
+O NECON produz dois tipos de estimativas: 1) pontos ideais dos partidos na Câmara, com base na matriz das orientações de lideranças; e 2) pontos ideais dos deputados federais, com base na matriz de votações nominais.
+
+Nossas estimativas utilizam apenas dados de votações, sem adotar nenhum tipo de modelo hierárquico ou restrições nos parâmetros com base em variáveis externas, como posicionamento ideológico em surveys, tópicos em discursos, perfil de atuação legislativa ou outros indicadores (inclusive relacionados aos projetos e votações).
+
+Os gráficos de uma dimensão apresentam o ponto ideal (do partido ou deputado) acompanhado do intervalo de confiança de 95%. Quanto menor o tamanho do intervalo de confiança, mais segura é a afirmação sobre o posicionamento do ator e sua diferença ou semelhança com os demais. Ao inverso, quanto maior o intervalo, mais provável que a distinção entre os pontos não seja verdadeira ou expressiva.
+
+Os gráficos de duas dimensões apresentam apenas o ponto ideal (do partido ou deputado) estimado, embora seja possível acrescentar as retas de decisão (cutlines) estimadas para cada votação.)

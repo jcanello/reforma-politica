@@ -1,19 +1,20 @@
-orig.vote,dates,session,bill
-6350,2015-05-26,CD01O125E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 4
-6352,2015-05-26,CD01O126E,PEC  Nº 182/2007 - ART. 1º DO SUBSTITUTIVO
-6354,2015-05-26,CD01O126E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 22
-6356,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 10
-6357,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 32
-6358,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 28
-6359,2015-05-27,CD01O129E,PEC  Nº 182/2007 - ARTIGO 3º DO SUBSTITUTIVO - FIM DA REELEIÇÃO
-6360,2015-05-28,CD01O131E,PEC  Nº 182/2007 - REQUERIMENTO DE PREFERÊNCIA PARA A EMENDA AGLUTINATIVA Nº 40
-6362,2015-05-28,CD01O131E,PEC  Nº 182/2007 - DTQ 18 - PSDB - ART. 1º DA PEC 14/2015
-6363,2015-05-28,CD01O132E,PEC  Nº 182/2007 - ARTIGO 5º DO SUBSTITUTIVO
-6368,2015-06-10,CD01O147E,PEC  Nº 182/2007 - DTQ 27 - PMDB - PREFERÊNCIA PARA A PEC 444/2014
-6369,2015-06-10,CD01O147E,PEC  Nº 182/2007 - ARTIGO 8º DO SUBSTITUTIVO  - VOTO FACULTATIVO
-6370,2015-06-10,CD01O147E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 48
-6371,2015-06-10,CD01O148E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 54
-6372,2015-06-10,CD01O148E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 53
-6373,2015-06-11,CD01O149E,PEC  Nº 182/2007 - DTQ 16 -  SOLIDARIEDADE - EMENDA Nº 1
-6374,2015-06-11,CD01O149E,PEC  Nº 182/2007 - ARTIGO 10º DO SUBSTITUTIVO - LIMITE MÍNIMO DE IDADE
-6375,2015-06-11,CD01O149E,PEC  Nº 182/2007 - ART. 7º  DO SUBSTITUTIVO - POSSE DO PRESIDENTE E GOVERNADORES
+orig.vote,dates,session,bill,tema,item,resultado,,yea,nay,notInLegis,missing,Total,yea%,nay%,notInLegis%,missing%
+6350,2015-05-26,CD01O125E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 4,Sistema Eleitoral,Lista fechada: deputados e vereadores eleitos por lista definida pelo partido,rejeitado,6350,21,402,89,0,512,"4,1015625","78,515625","17,3828125",0
+6351,2015-05-26,CD01O125E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 2,Sistema Eleitoral,Distrital Misto: metade dos deputados e vereadores e vereadores eleitos por lista e outra metade seria os mais votados em cada distrito,rejeitado,6351,99,369,44,0,512,"19,3359375","72,0703125","8,59375",0
+6352,2015-05-26,CD01O126E,PEC  Nº 182/2007 - ART. 1º DO SUBSTITUTIVO,Sistema Eleitoral,Distritão: elege os deputados mais votados nos estados e os vereadores mais votados nos municípios,rejeitado,6352,210,267,35,0,512,"41,015625","52,1484375","6,8359375",0
+6354,2015-05-26,CD01O126E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 22,Financiamento de campanha,Financiamento público e doação de empresas e pessoas físicas a candidatos e partidos,rejeitado,6354,264,207,41,0,512,"51,5625","40,4296875","8,0078125",0
+6356,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 10,Financiamento de campanha,Financiamento público e doações apenas de pessoas físicas,rejeitado,6356,164,240,108,0,512,"32,03125","46,875","21,09375",0
+6357,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 32,Financiamento de campanha,Financiamento exclusivamente público,rejeitado,6357,56,343,113,0,512,"10,9375","66,9921875","22,0703125",0
+6358,2015-05-27,CD01O128E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 28,Financiamento de campanha,Financiamento público e doações de empresas e pessoas físicas a partidos e pessoas físicas a candidatos,aprovado,6358,330,141,41,0,512,"64,453125","27,5390625","8,0078125",0
+6359,2015-05-27,CD01O129E,PEC  Nº 182/2007 - ARTIGO 3º DO SUBSTITUTIVO - FIM DA REELEIÇÃO,Reeleição,"Fim da reeleição para governadores, prefeitos e presidente da República",aprovado,6359,452,19,41,0,512,"88,28125","3,7109375","8,0078125",0
+6360,2015-05-28,CD01O131E,PEC  Nº 182/2007 - REQUERIMENTO DE PREFERÊNCIA PARA A EMENDA AGLUTINATIVA Nº 40,Duração dos mandatos,"Mandato de 5 anos para deputados, prefeitos e governadores, com início em primeiro de janeiro",rejeitado,6360,38,219,255,0,512,"7,421875","42,7734375","49,8046875",0
+6362,2015-05-28,CD01O131E,PEC  Nº 182/2007 - DTQ 18 - PSDB - ART. 1º DA PEC 14/2015,Fim das coligações,Proíbe as coligações para eleições proporcionais: deputados e vereadores,rejeitado,6362,206,236,70,0,512,"40,234375","46,09375","13,671875",0
+6363,2015-05-28,CD01O132E,PEC  Nº 182/2007 - ARTIGO 5º DO SUBSTITUTIVO,Cláusula de desempenho,Limita o acesso ao fundo e ao tempo de TV a partidos com representação,aprovado,6363,369,39,104,0,512,"72,0703125","7,6171875","20,3125",0
+6368,2015-06-10,CD01O147E,PEC  Nº 182/2007 - DTQ 27 - PMDB - PREFERÊNCIA PARA A PEC 444/2014,Voto facultativo,PEC apensada – alistamento eleitoral e voto facultativo,rejeitado,6368,114,268,129,1,512,"22,265625","52,34375","25,1953125","0,1953125"
+6369,2015-06-10,CD01O147E,PEC  Nº 182/2007 - ARTIGO 8º DO SUBSTITUTIVO  - VOTO FACULTATIVO,Voto facultativo,Voto facultativo para todas as eleições,rejeitado,6369,134,311,66,1,512,"26,171875","60,7421875","12,890625","0,1953125"
+6370,2015-06-10,CD01O147E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 48,Duração dos mandatos,"Mandato de 5 anos para todos os cargos, inclusive senador, a partir de 2020 e regras de transição",aprovado,6370,348,110,53,1,512,"67,96875","21,484375","10,3515625","0,1953125"
+6371,2015-06-10,CD01O148E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 54,Coincidência das eleições,Eleições municipais e gerais em um único ano,rejeitado,6371,220,225,66,1,512,"42,96875","43,9453125","12,890625","0,1953125"
+6372,2015-06-10,CD01O148E,PEC  Nº 182/2007 - EMENDA AGLUTINATIVA Nº 53,Duração dos mandatos,Mandato de 4 anos para prefeitos e vereadores eleitos em 2016,aprovado,6372,419,8,84,1,512,"81,8359375","1,5625","16,40625","0,1953125"
+6373,2015-06-11,CD01O149E,PEC  Nº 182/2007 - DTQ 16 -  SOLIDARIEDADE - EMENDA Nº 1,Idade mínima para deputados,idade mínima de 18 anos,aprovado,6373,337,73,101,1,512,"65,8203125","14,2578125","19,7265625","0,1953125"
+6374,2015-06-11,CD01O149E,PEC  Nº 182/2007 - ARTIGO 10º DO SUBSTITUTIVO - LIMITE MÍNIMO DE IDADE,Idade mínima para governadores e senadores,Redução da idade mínima para 29 anos,aprovado,6374,363,48,101,0,512,"70,8984375","9,375","19,7265625",0
+6375,2015-06-11,CD01O149E,PEC  Nº 182/2007 - ART. 7º  DO SUBSTITUTIVO - POSSE DO PRESIDENTE E GOVERNADORES,Data de posse de Presidente e Governadores,4 de janeiro para governadores e 5 para presidente,aprovado,6375,386,10,116,0,512,"75,390625","1,953125","22,65625",0
