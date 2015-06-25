@@ -5,6 +5,7 @@
 
 library(pscl)
 library(wnominate)
+library(ggplot2)
 
 #read data for roll call object
 
@@ -42,11 +43,11 @@ resumo.rc$legisTab
 resumo.rc$partyLoyalty
 
 # Vote Tab
-write.csv(resumo.rc$voteTab, "resumo.csv")
+write.csv(resumo.rc$voteTab, "data/resumo.csv")
 
 #Run Ideal
 ideal2<-ideal(rc,d=2,verbose=TRUE,normalize=TRUE, maxiter=200000,
-	      thin = 200, store.item = TRUE)
+	      store.item = TRUE)
 
 resumo.id2<-summary(ideal2, verbose=T, include.beta = TRUE)
 
@@ -84,8 +85,8 @@ rc.o<-rollcall(orient,
 resumo.rco <- summary(rc.o, verbose = T)
 
 # Run ideal
-idealc2<-ideal(rc.o,d=2,verbose=TRUE,normalize=TRUE, maxiter=200000,
-	       thin = 200, store.item = TRUE)
+idealc2<-ideal(rc.o,d=2,verbose=TRUE,normalize=TRUE, maxiter=250000,
+	       store.item = TRUE)
 
 res<-summary(idealc2, verbose=T, include.beta = TRUE)
 
@@ -160,3 +161,22 @@ bills <- merge(bills, bill.o.par)
 
 write.csv(bills, "data/bills-orient.csv")
 
+
+############## Density
+
+library(reshape2)
+library(ggplot2)
+
+ids <- as.data.frame(idealc2$x[,,1])
+ids <- melt(ids)
+
+
+vline.data <- as.data.frame(sapply(as.data.frame(idealc2$x[,,1]), mean))
+vline.data$partido <- rownames(vline.data)
+names(vline.data) <- c("media", "partidos")
+	
+ggplot(ids, aes(value)) +
+	facet_grid(variable ~ .) +
+	geom_density() +
+	geom_vline(aes(xintercept = media), vline.data)
+	

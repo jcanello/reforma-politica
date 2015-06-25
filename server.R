@@ -1,29 +1,14 @@
 library(shiny)
+library(shinythemes)
 library(ggvis)
-
-vote <- read.csv("data/camara.csv")[-1:-2]
-vote$urlFoto <- as.character(vote$urlFoto)
-vote$email <- as.character(vote$email)
-vote$nome <- as.character(vote$nome)
-orient <- read.csv("data/partidos.csv")
-names(orient)[1] <- "partido"
-
-nameparty <- function(x) {
-  if(is.null(x)) return(NULL)
-  row <- vote[vote$id == x$id, c('nome', 'partido', 'uf')]
-  paste0(format(row), collapse = " - ")
-}
-
-party <- function(x) {
-  if(is.null(x)) return(NULL)
-  paste0(names(x), ": ", format(x), collapse = "<br />")
-}
+library(rCharts)
 
 shinyServer(function(input, output) {
 
  vote %>% 
     ggvis(~xD1, ~xD2, key := ~id) %>%  
-    layer_text(text := ~partido, fill = ~partido, fontSize := 8) %>%
+    layer_text(text := ~partido, fill = ~partido, 
+    	   fontSize := 9) %>% 
  add_tooltip(nameparty, "hover") %>%
  	add_axis("x", title = "", subdivide = 9, values = -2.5:2.3, tick_size_major = 10,
  		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20 ) %>% 
@@ -63,7 +48,8 @@ shinyServer(function(input, output) {
  
  orient %>% 
     ggvis(~xD1, ~xD2, stroke := ~partido) %>%  
-    layer_text(text := ~partido, fill = ~partido, fontSize := 18) %>%
+    layer_text(text := ~partido, fill = ~partido, 
+    	   fontSize := 18) %>%
     add_tooltip(party, "hover") %>%
  	add_axis("x", title = "", subdivide = 9, values = -1.5:2, tick_size_major = 10,
  		 tick_size_minor = 5, tick_size_end = 15, tick_padding = 20 ) %>% 
@@ -76,5 +62,17 @@ shinyServer(function(input, output) {
 					"red", "green", "gold")) %>%
  	bind_shiny("oideal", "oideal_ui")
 
-     
+ 
+ output$chart1 <- renderChart({
+ 	VOTE = input$vote
+ 	tot <- subset(tots, item == VOTE)
+    p1 <- nPlot(value ~ party, group = 'variable', data = tot, 
+      type = "multiBarChart")
+    p1$chart(color = c('blue', 'red', 'orange', 'gray', 'purple'),
+    	 reduceXTicks = FALSE, stacked = TRUE)
+    p1$addParams(dom = 'chart1')
+    return(p1)
+  })
+
+ 
 })
