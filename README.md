@@ -11,7 +11,6 @@ Pontos ideais estimados pelo Ideal (pscl R package).
 
 To dos:
 - Revisar descrição das votações.
-- Filtro por partidos.
 - Plot 1d para alinhamento partidário.
 - Link pg deputado onclick.
 - Nota metodológica.
